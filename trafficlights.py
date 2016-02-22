@@ -4,7 +4,7 @@ import mcpi.block as block
 from time import sleep
 
 # connect python to minecraft
-mc = = minecraft.Minecraft.create()
+mc = minecraft.Minecraft.create()
 
 # create variables for light colours
 black = 15
@@ -20,7 +20,7 @@ mc.player.setPos(5, 0, 0)
 for i in range(1, 7):
     mc.setBlock(10, 0 +i, 0, block.WOOL.id, 8)
     
-mc.setBlock(9, 6, 0, block.Wool.id, black)
-mc.setBlock(9, 5, 0, block.Wool.id, black)
-mc.setBlock(9, 4, 0, block.Wool.id, black)
+mc.setBlock(9, 6, 0, block.WOOL.id, black)
+mc.setBlock(9, 5, 0, block.WOOL.id, black)
+mc.setBlock(9, 4, 0, block.WOOL.id, black)
     
