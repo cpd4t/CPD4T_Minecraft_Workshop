@@ -23,4 +23,36 @@ for i in range(1, 7):
 mc.setBlock(9, 6, 0, block.WOOL.id, black)
 mc.setBlock(9, 5, 0, block.WOOL.id, black)
 mc.setBlock(9, 4, 0, block.WOOL.id, black)
+
+# wait three seconds before starting sequence
+sleep(3)
+
+# traffic light sequence
+while True:
+    # turn on red
+    mc.setBlock(9, 6, 0, block.WOOL.id, red)
+    # wait three seconds
+    sleep(3)
+    
+    # turn on amber
+    mc.setBlock(9, 5, 0, block.WOOL.id, amber)
+    # wait one second
+    sleep(1)
+    
+    # turn off red & amber, turn on green
+    mc.setBlock(9, 6, 0, block.WOOL.id, black)
+    mc.setBlock(9, 5, 0, block.WOOL.id, black)
+    mc.setBlock(9, 4, 0, block.WOOL.id, green)
+    # wait three seconds
+    sleep(3)
+    
+    # turn off green
+    mc.setBlock(9, 4, 0, block.WOOL.id, black)
+    # turn on amber
+    mc.setBlock(9, 5, 0, block.WOOL.id, amber)
+    # wait one second
+    sleep(1)
+    
+    # turn off amber
+    mc.setBlock(9, 5, 0, block.WOOL.id, black)
     
