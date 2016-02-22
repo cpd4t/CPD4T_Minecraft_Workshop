@@ -1,7 +1,6 @@
 # import modules
 import mcpi.minecraft as minecraft
 import mcpi.block as block
-from time import sleep
 
 # connect python to minecraft
 mc = minecraft.Minecraft.create()
@@ -18,11 +17,12 @@ while True:
     x, y, z = mc.player.getTilePos()
     
     if x == 21 and y == 0 and z == 21:
-        mc.setBlock(21, 0, 20, block.WOOL,id, 1)
-        mc.setBlock(21, 1, 20, block.WOOL,id, 1)
-        mc.setBlock(21, 2, 20, block.WOOL,id, 1)
-        mc.setBlock(21, 3, 20, block.WOOL,id, 1)
+        mc.setBlock(21, 0, 20, block.WOOL.id, 1)
+        mc.setBlock(21, 1, 20, block.WOOL.id, 1)
+        mc.setBlock(21, 2, 20, block.WOOL.id, 1)
+        mc.setBlock(21, 3, 20, block.WOOL.id, 1)
+        mc.setBlock(21, 3, 21, block.WOOL.id, 1)
         mc.postToChat("Trapped!")
-        sleep(1)
+        break
         
  
