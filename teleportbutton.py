@@ -2,6 +2,7 @@
 import mcpi.minecraft as minecraft
 import pibrella
 import random
+import time
 
 # connect python to minecraft
 mc = minecraft.Minecraft.create()
@@ -18,3 +19,5 @@ while True:
         # move player to new co-ordinates
         mc.postToChat("Teleport!")
         mc.player.setPos(x, y, z)
+        
+    time.sleep(0.25)
