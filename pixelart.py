@@ -27,7 +27,8 @@ y=0
 z=0
 for row in pixels:
     y = y + 1
-    x = 0
+    z = 0
     for pixel in row:
+        print(x, y, pixel)
         mc.setBlock(x, y, z, WOOL, pixel)
-        x = x + 1
+        z = z + 1
