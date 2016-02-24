@@ -26,8 +26,21 @@ while True:
     dist = sqrt(dist_x * dist_x + dist_y * dist_y + dist_z * dist_z)
 
     print(dist)  # debug output
-    flash = int(dist/200)
-    pibrella.light.red.on()
-    sleep(flash)
-    pibrella.light.red.off()
-    sleep(flash)
+    if int(dist) > 20:
+        pibrella.light.red.on()
+        sleep(.5)
+        pibrella.light.red.off()
+        sleep(.5)
+    elif int(dist) < 20 and int(dist) > 2:
+        pibrella.light.yellow.on()
+        sleep(.3)
+        pibrella.light.yellow.off()
+        sleep(.3)
+    elif int(dist) < 2 and int(dist) > 0:
+        pibrella.light.green.on()
+        sleep(.1)
+        pibrella.light.green.off()
+        sleep(.1)
+    else:
+        mc.postToChat("Success, you have found the treasure")
+        break  # quit loop
