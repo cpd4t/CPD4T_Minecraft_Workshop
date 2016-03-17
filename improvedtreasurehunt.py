@@ -1,6 +1,5 @@
 # import modules
 import mcpi.minecraft as minecraft
-import mcpi.block as block
 import pibrella
 from math import sqrt
 from time import sleep
