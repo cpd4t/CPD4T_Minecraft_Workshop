@@ -5,14 +5,11 @@
 # in a loop and light leds dependant on distance.
 #
 
-
 # Import required Python libraries
 
 import time
 import RPi.GPIO as GPIO
 import mcpi.minecraft as minecraft
-import mcpi.block as block
-
 
 # Define some functions
 
@@ -33,6 +30,7 @@ def measure():
   distance = (elapsed * 34300)/2
 
   return distance
+
 
 def measure_average():
   # This function takes 3 measurements and
@@ -60,6 +58,14 @@ redled = 11
 yellowled = 9
 greenled = 10
 
+# create variables for block and light colours
+air = 0
+stone = 1
+wool = 35
+black = 15
+red_wool = 14
+yellow_wool = 4
+green_wool = 5
 
 print ("Ultrasonic Measurement")
 
@@ -81,23 +87,16 @@ mc = minecraft.Minecraft.create()
 
 # clear some working space
 mc.postToChat("Welcome to Minecraft Pi! Clearing a play space.")
-time.sleep(5)
+time.sleep(3)
 
-playerTilePos = mc.player.getTilePos()
+mc.setBlocks(-50, -1, -50, 50, -1, 50, stone)
+mc.setBlocks(-50, 0, -50, 50, 50, 50, air)
 
-print (playerTilePos.x, playerTilePos.y, playerTilePos.z)
+mc.set.playerPos(0, 0, 0)
 
-mc.setBlocks(playerTilePos.x - 25, playerTilePos.y - 1,
-playerTilePos.z - 25, playerTilePos.x + 25, playerTilePos.y - 1,
-playerTilePos.z + 25, block.STONE)
-
-mc.setBlocks(playerTilePos.x - 25, playerTilePos.y, playerTilePos.z -
-25, playerTilePos.x + 25, playerTilePos.y + 64, playerTilePos.z + 25,
-block.AIR)
-
-red = playerTilePos.y
-yellow = playerTilePos.y
-green = playerTilePos.y
+red = 0
+yellow = 0
+green = 0
 
 # Wrap main content in a try block so we can
 # catch the user pressing CTRL-C and run the
@@ -106,20 +105,19 @@ try:
 
   while True:
 
-    playerPos=mc.player.getPos()
     distance = measure_average()
     print ("Distance : %.1f" % distance)
     if distance < 10:
       GPIO.output(redled, True)
-      mc.setBlock(playerPos.x + distance, red, playerPos.z, block.GLOWING_OBSIDIAN)
+      mc.setBlock(0 + distance, red, 0, wool, red_wool)
       red=red+1
     elif distance < 30:
       GPIO.output(yellowled, True)
-      mc.setBlock(playerPos.x + distance, yellow, playerPos.z + distance, block.GOLD_BLOCK)
+      mc.setBlock(0 + distance, yellow, 0 + distance, wool, yellow_wool)
       yellow=yellow+1
     else:
       GPIO.output(greenled, True)
-      mc.setBlock(playerPos.x, green, playerPos.z + distance/3, block.MOSS_STONE)
+      mc.setBlock(0, green, 0 + distance/3, wool, green_wool)
       green=green+1
     time.sleep(1)
     # reset leds
