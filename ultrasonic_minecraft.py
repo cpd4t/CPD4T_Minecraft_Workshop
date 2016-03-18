@@ -1,9 +1,10 @@
 #!/usr/bin/python3
 #
-# bsf_workshop.py
 # Measure distance using an ultrasonic module
-# in a loop and light leds dependant on distance.
+# in a loop and light leds dependant on distance and place blocks in Minecraft.
 #
+# created for the Brighton Science Festival by Neil C Ford (@neilcford)
+# worksheet can be found at https://github.com/NeilCFord/BrightonScienceFestival
 
 # Import required Python libraries
 
