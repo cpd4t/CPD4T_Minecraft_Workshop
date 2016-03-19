@@ -59,14 +59,14 @@ redled = 11
 yellowled = 9
 greenled = 10
 
-# create variables for block and light colours
-air = 0
-stone = 1
-wool = 35
-black = 15
-red_wool = 14
-yellow_wool = 4
-green_wool = 5
+# create CONSTANTS for block and light colours
+AIR = 0
+STONE = 1
+WOOL = 35
+BLACK = 15
+RED = 14
+YELLOW = 4
+GREEN = 5
 
 print ("Ultrasonic Measurement")
 
@@ -90,8 +90,8 @@ mc = minecraft.Minecraft.create()
 mc.postToChat("Welcome to Minecraft Pi! Clearing a play space.")
 time.sleep(3)
 
-mc.setBlocks(-50, -1, -50, 50, -1, 50, stone)
-mc.setBlocks(-50, 0, -50, 50, 50, 50, air)
+mc.setBlocks(-50, -1, -50, 50, -1, 50, STONE)
+mc.setBlocks(-50, 0, -50, 50, 50, 50, AIR)
 
 mc.set.playerPos(0, 0, 0)
 
@@ -110,15 +110,15 @@ try:
     print ("Distance : %.1f" % distance)
     if distance < 10:
       GPIO.output(redled, True)
-      mc.setBlock(0 + distance, red, 0, wool, red_wool)
+      mc.setBlock(0 + distance, red, 0, WOOL, RED)
       red=red+1
     elif distance < 30:
       GPIO.output(yellowled, True)
-      mc.setBlock(0 + distance, yellow, 0 + distance, wool, yellow_wool)
+      mc.setBlock(0 + distance, yellow, 0 + distance, WOOL, YELLOW)
       yellow=yellow+1
     else:
       GPIO.output(greenled, True)
-      mc.setBlock(0, green, 0 + distance/3, wool, green_wool)
+      mc.setBlock(0, green, 0 + distance/3, WOOL, GREEN)
       green=green+1
     time.sleep(1)
     # reset leds

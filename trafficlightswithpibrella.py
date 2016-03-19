@@ -6,14 +6,14 @@ import pibrella
 # connect python to minecraft
 mc = minecraft.Minecraft.create()
 
-# create variables for block and light colours
-air = 0
-stone = 1
-wool = 35
-black = 15
-red = 14
-amber = 4
-green = 5
+# create CONSTANTS for block and light colours
+AIR = 0
+STONE = 1
+WOOL = 35
+BLACK = 15
+RED = 14
+AMBER = 4
+GREEN = 5
 
 # clear area in middle of map and move player there
 mc.setBlocks(-60, 0, -60, 60, 50, 60, air)
@@ -34,36 +34,36 @@ sleep(3)
 # traffic light sequence
 while True:
     # turn on red
-    mc.setBlock(9, 6, 0, wool, red)
+    mc.setBlock(9, 6, 0, WOOL, RED)
     pibrella.light.red.on()
     # wait three seconds
     sleep(3)
 
     # turn on amber
-    mc.setBlock(9, 5, 0, wool, amber)
+    mc.setBlock(9, 5, 0, WOOL, AMBER)
     pibrella.light.yellow.on()
     # wait one second
     sleep(1)
 
     # turn off red & amber, turn on green
-    mc.setBlock(9, 6, 0, wool, black)
+    mc.setBlock(9, 6, 0, WOOL, BLACK)
     pibrella.light.red.off()
-    mc.setBlock(9, 5, 0, wool, black)
+    mc.setBlock(9, 5, 0, WOOL, BLACK)
     pibrella.light.yellow.off()
-    mc.setBlock(9, 4, 0, wool, green)
+    mc.setBlock(9, 4, 0, WOOL, GREEN)
     pibrella.light.green.on()
     # wait three seconds
     sleep(3)
 
     # turn off green
-    mc.setBlock(9, 4, 0, wool, black)
+    mc.setBlock(9, 4, 0, WOOL, BLACK)
     pibrella.light.green.off()
     # turn on amber
-    mc.setBlock(9, 5, 0, wool, amber)
+    mc.setBlock(9, 5, 0, WOOL, AMBER)
     pibrella.light.yellow.on()
     # wait one second
     sleep(1)
 
     # turn off amber
-    mc.setBlock(9, 5, 0, wool, black)
+    mc.setBlock(9, 5, 0, WOOL, BLACK)
     pibrella.light.yellow.off()

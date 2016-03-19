@@ -7,17 +7,17 @@ from time import sleep
 # connect python to minecraft
 mc = minecraft.Minecraft.create()
 
-# create variables for blocks and counts
-air = 0
-stone = 1
-dirt = 3
+# create CONSTANTS and variables for blocks and counts
+AIR = 0
+STONE = 1
+DIRT = 3
 block_id = 0
 z = 0
 
 # clear area in middle of map and move player there
-mc.setBlocks(-60, 0, -60, 60, 50, 60, air)
-mc.setBlocks(-60, -1, -60, 60, -1, 60, stone)
-mc.setBlocks(-60, -2, -60, 60, -2, 60, dirt)
+mc.setBlocks(-60, 0, -60, 60, 50, 60, AIR)
+mc.setBlocks(-60, -1, -60, 60, -1, 60, STONE)
+mc.setBlocks(-60, -2, -60, 60, -2, 60, DIRT)
 mc.player.setPos(-3, 0, 0)
 
 print("Starting...")
