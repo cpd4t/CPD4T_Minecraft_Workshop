@@ -16,17 +16,17 @@ AMBER = 4
 GREEN = 5
 
 # clear area in middle of map and move player there
-mc.setBlocks(-60, 0, -60, 60, 50, 60, air)
-mc.setBlocks(-60, -1, -60, 60, -1, 60, stone)
+mc.setBlocks(-60, 0, -60, 60, 50, 60, AIR)
+mc.setBlocks(-60, -1, -60, 60, -1, 60, STONE)
 mc.player.setPos(5, 0, 0)
 
 # create initial light stack
 for i in range(1, 7):
-    mc.setBlock(10, 0 +i, 0, wool, 8)
+    mc.setBlock(10, 0 +i, 0, WOOL, 8)
 
-mc.setBlock(9, 6, 0, wool, black)
-mc.setBlock(9, 5, 0, wool, black)
-mc.setBlock(9, 4, 0, wool, black)
+mc.setBlock(9, 6, 0, WOOL, BLACK)
+mc.setBlock(9, 5, 0, WOOL, BLACK)
+mc.setBlock(9, 4, 0, WOOL, BLACK)
 
 # wait three seconds before starting sequence
 sleep(3)
