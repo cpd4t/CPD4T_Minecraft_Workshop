@@ -23,9 +23,9 @@ mc.player.setPos(5, 0, 0)
 for i in range(1, 7):
     mc.setBlock(10, 0 +i, 0, WOOL, 8)
 
-mc.setBlock(9, 6, 0, wool, BLACK)
-mc.setBlock(9, 5, 0, wool, BLACK)
-mc.setBlock(9, 4, 0, wool, BLACK)
+mc.setBlock(9, 6, 0, WOOL, BLACK)
+mc.setBlock(9, 5, 0, WOOL, BLACK)
+mc.setBlock(9, 4, 0, WOOL, BLACK)
 
 # wait three seconds before starting sequence
 sleep(3)
